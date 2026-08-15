@@ -1,0 +1,20 @@
+# Exact versions used to produce every number, table, and figure in the paper.
+# CPU-only is sufficient for every script in pipeline/ except the original ASR
+# inference runs (run_asr.py / run_asr_mdvrkcl.py) -- see README "Scope of what
+# is and is not reproducible from this artifact alone".
+torch==2.5.1+cu118          # install via: pip install torch --index-url https://download.pytorch.org/whl/cu118
+                            # (a CPU build also works for every script here except
+                            #  re-running the original ASR transcription pass)
+transformers==4.53.3
+faster-whisper==1.2.1
+onnx-asr==0.11.0
+onnxruntime==1.26.0
+statsmodels==0.14.6
+pandas==2.2.3
+numpy==2.2.6
+matplotlib==3.10.3
+sentence-transformers==5.5.1
+jiwer==3.1.0
+soundfile==0.14.0
+soxr==1.1.0
+tqdm==4.67.1

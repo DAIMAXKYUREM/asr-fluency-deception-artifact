@@ -1,0 +1,94 @@
+# Qualitative-table build report
+
+Source file: results\torgo_asr_01\per_item_novel.csv
+Rows loaded: 23949
+Columns: ['item_id', 'system', 'speaker_id', 'condition', 'severity', 'is_control', 'prompt_type', 'reference', 'hypothesis', 'wer', 'cer', 'entity_error_rate', 'hallucination_rate', 'semantic_similarity', 'sub_rate', 'del_rate', 'ins_rate', 'substitutions', 'deletions', 'insertions', 'n_ref_words', 'content_word_wer', 'function_word_wer', 'n_content_words', 'n_function_words', 'content_errors', 'function_errors', 'cer_errors', 'cer_ref_chars', 'hyp_word_count', 'halluc_count', 'wer_err', 'duration', 'ppl', 'logppl', 'phi', 's', 'D', 'fluent_wrong', 'content_hits', 'degenerate']
+
+Required-column check: all present (item_id, speaker_id, system, prompt_type, is_control, reference, hypothesis, phi, s).
+
+## Severity column correction
+Speakers with a stale-vs-FDA severity mismatch in the source file: 5 of 8 impaired speakers.
+  F03: stale='mild' -> corrected='moderate'
+  F04: stale='moderate' -> corrected='very_mild'
+  M02: stale='moderate' -> corrected='severe'
+  M03: stale='mild' -> corrected='very_mild'
+  M05: stale='severe' -> corrected='moderate_severe'
+Corrected severity (FDA, Rudzicz et al. 2012) is used for all filtering below.
+
+Joined conf/conf_norm from results/torgo_asr_01/deception_detector_torgo_scores.csv (23891/23949 rows matched).
+
+## Step 3 — sanity check against published numbers
+FMR = P(phi>=0.5 AND s<=0.5), impaired sentences, per system:
+  whisper_large_v3   FMR computed=0.1835 expected=0.184 MATCH  |  fluency-given-wrong computed=0.6324 expected=0.632 MATCH
+  wav2vec2_960h      FMR computed=0.2616 expected=0.262 MATCH  |  fluency-given-wrong computed=0.5357 expected=0.536 MATCH
+  parakeet_tdt       FMR computed=0.1445 expected=0.144 MATCH  |  fluency-given-wrong computed=0.5223 expected=0.522 MATCH
+
+Sanity check PASSED — all 6 values match the paper to <0.001. Proceeding.
+
+## Step 4 — candidate selection (Whisper, impaired, sentences)
+Whisper impaired-sentence rows: 692
+FMR-positive rows (phi>=0.5 & s<=0.5): 127
+Tiers present in the FMR-positive set: ['very_mild', 'moderate', 'moderate_severe', 'severe']
+  very_mild: 1 candidate rows, speakers=['F04']
+  moderate: 6 candidate rows, speakers=['F03']
+  moderate_severe: 12 candidate rows, speakers=['M05']
+  severe: 108 candidate rows, speakers=['F01', 'M01', 'M02', 'M04']
+
+Selected 13 candidates after tier-stratification (cap 2/speaker, round-robin across 4 tiers).
+NOTE: fewer than 20 available after stratification+cap (13 selected) — not loosening the filter to fill the table.
+Speaker distribution in final selection: {'F04': 1, 'F03': 2, 'M05': 2, 'M02': 2, 'M01': 2, 'F01': 2, 'M04': 2}
+
+## Step 5 — outputs
+Wrote results\qualitative\fmr_candidates.csv  (13 rows)
+Wrote results\qualitative\tab_qualitative.tex  (top 8; two-row-per-example layout chosen: 4 side-by-side p{} text columns at footnotesize did not fit \textwidth for a single-column LNCS page at readable width, so reference+hypotheses are stacked as one cell per example instead.)
+Truncation occurred in the LaTeX table: False
+
+## Top 8 selected examples
+
+[F04 / very_mild]  phi=0.642  s=0.419  D=0.373
+  ref:      I have had my bell rung.
+  whisper:  I have had my bowel rung.
+  wav2vec2: I HAVE HAD MY BELL RUNG
+  parakeet: I've had my bell rung.
+
+[F03 / moderate]  phi=0.718  s=0.154  D=0.607
+  ref:      You can ride stagecoach.
+  whisper:  You can ask any question.
+  wav2vec2: YOU CAN RIE A SAGE COSH
+  parakeet: You can have stage costs.
+
+[M05 / moderate_severe]  phi=0.741  s=0.134  D=0.642
+  ref:      He took me out one day.
+  whisper:  Thank you.
+  wav2vec2: nan
+  parakeet: M
+
+[M02 / severe]  phi=0.774  s=0.027  D=0.753
+  ref:      The humidity is overwhelming there.
+  whisper:  Thank you for watching.
+  wav2vec2: I AMENDE O OEWEL
+  parakeet: I immediately use all of them. Yeah.
+
+[F03 / moderate]  phi=0.579  s=0.189  D=0.469
+  ref:      Everything went real smooth, the sheriff said.
+  whisper:  Everything that reels with the surf deck.
+  wav2vec2: EVERYTHING WENT REAL SMOOTH THE SURF TUS
+  parakeet: Everything went real smooth, the sheriff said.
+
+[M05 / moderate_severe]  phi=0.699  s=0.101  D=0.629
+  ref:      Alfalfa is healthy for you.
+  whisper:  Our father is happy for you.
+  wav2vec2: ALFAE IS HETIN FOR YOU
+  parakeet: And you our file is healthy for you.
+
+[M02 / severe]  phi=0.776  s=0.052  D=0.735
+  ref:      A roll of wire lay near the wall.
+  whisper:  I'm going to go ahead and let you guys go.
+  wav2vec2: A BOLL OF WIRE LAERS THE WAR
+  parakeet: A bowl of wire, laymen.
+
+[M01 / severe]  phi=0.710  s=0.000  D=0.710
+  ref:      Carl lives in a lively home.
+  whisper:  I can't believe in the name of it all.
+  wav2vec2: CALY IN THE LIBELY OF
+  parakeet: Currently in the library of

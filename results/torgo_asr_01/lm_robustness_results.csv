@@ -1,0 +1,4 @@
+system,fluency_given_wrong_altlm,fluency_given_wrong_gpt2,rank_altlm,rank_gpt2,ranking_unchanged
+whisper_large_v3,0.5452994101638513,0.632,1,1,True
+wav2vec2_960h,0.3027235381185962,0.536,2,2,True
+parakeet_tdt,0.29674208409822317,0.522,3,3,True

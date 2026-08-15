@@ -1,0 +1,26 @@
+\begin{table}[t]
+\caption{Fluent misrecognition examples (Whisper, impaired sentences, top 8 by $D=\phi\cdot(1-s)$). Hypotheses over 90 characters are truncated with \ldots; casing/punctuation preserved as transcribed.}
+\label{tab:qualitative}
+\footnotesize
+\begin{tabular}{@{}p{0.14\textwidth}p{0.10\textwidth}p{0.72\textwidth}@{}}
+\toprule
+\textbf{Speaker (tier)} & \textbf{$\phi$ / $s$ / $D$} & \textbf{Reference \& hypotheses} \\
+\midrule
+F04 (very_mild) & 0.64 / 0.42 / 0.37 & \textit{Ref:} I have had my bell rung.\newline \textbf{Whisper:} I have had my bowel rung.\newline \textbf{wav2vec2:} I HAVE HAD MY BELL RUNG\newline \textbf{Parakeet:} I've had my bell rung. \\
+\addlinespace
+F03 (moderate) & 0.72 / 0.15 / 0.61 & \textit{Ref:} You can ride stagecoach.\newline \textbf{Whisper:} You can ask any question.\newline \textbf{wav2vec2:} YOU CAN RIE A SAGE COSH\newline \textbf{Parakeet:} You can have stage costs. \\
+\addlinespace
+M05 (moderate_severe) & 0.74 / 0.13 / 0.64 & \textit{Ref:} He took me out one day.\newline \textbf{Whisper:} Thank you.\newline \textbf{wav2vec2:} \newline \textbf{Parakeet:} M \\
+\addlinespace
+M02 (severe) & 0.77 / 0.03 / 0.75 & \textit{Ref:} The humidity is overwhelming there.\newline \textbf{Whisper:} Thank you for watching.\newline \textbf{wav2vec2:} I AMENDE O OEWEL\newline \textbf{Parakeet:} I immediately use all of them. Yeah. \\
+\addlinespace
+F03 (moderate) & 0.58 / 0.19 / 0.47 & \textit{Ref:} Everything went real smooth, the sheriff said.\newline \textbf{Whisper:} Everything that reels with the surf deck.\newline \textbf{wav2vec2:} EVERYTHING WENT REAL SMOOTH THE SURF TUS\newline \textbf{Parakeet:} Everything went real smooth, the sheriff said. \\
+\addlinespace
+M05 (moderate_severe) & 0.70 / 0.10 / 0.63 & \textit{Ref:} Alfalfa is healthy for you.\newline \textbf{Whisper:} Our father is happy for you.\newline \textbf{wav2vec2:} ALFAE IS HETIN FOR YOU\newline \textbf{Parakeet:} And you our file is healthy for you. \\
+\addlinespace
+M02 (severe) & 0.78 / 0.05 / 0.74 & \textit{Ref:} A roll of wire lay near the wall.\newline \textbf{Whisper:} I'm going to go ahead and let you guys go.\newline \textbf{wav2vec2:} A BOLL OF WIRE LAERS THE WAR\newline \textbf{Parakeet:} A bowl of wire, laymen. \\
+\addlinespace
+M01 (severe) & 0.71 / 0.00 / 0.71 & \textit{Ref:} Carl lives in a lively home.\newline \textbf{Whisper:} I can't believe in the name of it all.\newline \textbf{wav2vec2:} CALY IN THE LIBELY OF\newline \textbf{Parakeet:} Currently in the library of \\
+\bottomrule
+\end{tabular}
+\end{table}

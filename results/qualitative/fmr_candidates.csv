@@ -1,0 +1,14 @@
+utt_id,speaker,tier,reference,whisper_hyp,wav2vec2_hyp,parakeet_hyp,phi,sem_sim,D,conf
+F04_Session2_0176,F04,very_mild,I have had my bell rung.,I have had my bowel rung.,I HAVE HAD MY BELL RUNG,I've had my bell rung.,0.6421,0.4189,0.3731,0.4292
+F03_Session3_0105,F03,moderate,You can ride stagecoach.,You can ask any question.,YOU CAN RIE A SAGE COSH,You can have stage costs.,0.7181,0.1544,0.6072,0.062
+M05_Session2_0303,M05,moderate_severe,He took me out one day.,Thank you.,,M,0.7412,0.1341,0.6418,0.1591
+M02_Session2_0078,M02,severe,The humidity is overwhelming there.,Thank you for watching.,I AMENDE O OEWEL,I immediately use all of them. Yeah.,0.774,0.0269,0.7532,0.3083
+F03_Session2_0029,F03,moderate,"Everything went real smooth, the sheriff said.",Everything that reels with the surf deck.,EVERYTHING WENT REAL SMOOTH THE SURF TUS,"Everything went real smooth, the sheriff said.",0.5787,0.1891,0.4693,0.2678
+M05_Session2_0147,M05,moderate_severe,Alfalfa is healthy for you.,Our father is happy for you.,ALFAE IS HETIN FOR YOU,And you our file is healthy for you.,0.6992,0.1007,0.6288,0.1296
+M02_Session2_0096,M02,severe,A roll of wire lay near the wall.,I'm going to go ahead and let you guys go.,A BOLL OF WIRE LAERS THE WAR,"A bowl of wire, laymen.",0.7758,0.0522,0.7353,0.1516
+M01_Session2_3_0262,M01,severe,Carl lives in a lively home.,I can't believe in the name of it all.,CALY IN THE LIBELY OF,Currently in the library of,0.7101,0.0,0.7101,0.1155
+M01_Session2_3_0254,M01,severe,Students watched as he got out.,You didn't want any kind of...,DO DIDN'T WANT ANY GID O,Still didn't want any kind of,0.7009,0.0065,0.6963,0.2878
+F01_Session1_0028,F01,severe,"but he always answers, Banana oil!","But you're all right and you're all right, all right.",BUT HE ALWA ANSO MOL,But he always asks him banana oil.,0.782,0.1223,0.6864,0.0907
+F01_Session1_0020,F01,severe,Usually minus several buttons.,I'm going to buy myself a bucket.,YLY MINE SO BUCKINS,Usually minus several buttons,0.706,0.0338,0.6821,0.1806
+M04_Session2_0298,M04,severe,Both injuries were to the same leg.,"But in doing so, that didn't make it.",BUT INDUING  TO DE THE DIM LAK,Both engineering were to mm the ten legs.,0.7347,0.1169,0.6488,0.1475
+M04_Session2_0216,M04,severe,Mother sews yellow gingham aprons.,"My son, you know, gang, um, I'm fine.",MANTO YELLOWGANM APAN,Mal N Yellow Gang Mapan,0.6952,0.1183,0.6129,0.0393
